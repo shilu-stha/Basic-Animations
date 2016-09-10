@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
@@ -14,6 +15,10 @@ import android.widget.Toast;
 public class SimpleAnimFromJavaActivity extends AppCompatActivity implements Animation.AnimationListener {
 
     ImageView ivAnimation;
+    Animation rotateAnimation;
+    Animation scaleAnimation;
+    Animation translateAnimation;
+    Animation alphaAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,56 +28,60 @@ public class SimpleAnimFromJavaActivity extends AppCompatActivity implements Ani
     }
 
     public void rotate(View view) {
-        Animation animation = new RotateAnimation(0.0f, 180f,
+        rotateAnimation = new RotateAnimation(0.0f, 180f,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
-        animation.setDuration(1000);
-        animation.setAnimationListener(this);
-        ivAnimation.startAnimation(animation);
+        rotateAnimation.setDuration(1000);
+        rotateAnimation.setAnimationListener(this);
+        ivAnimation.startAnimation(rotateAnimation);
     }
 
     public void scale(View view) {
-        Animation animation = new ScaleAnimation(1.0f, 1.5f,
+        scaleAnimation = new ScaleAnimation(1.0f, 1.5f,
                 1.0f, 1.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
-        animation.setDuration(1000);
-        animation.setAnimationListener(this);
-        ivAnimation.startAnimation(animation);
+        scaleAnimation.setDuration(1000);
+        scaleAnimation.setAnimationListener(this);
+        ivAnimation.startAnimation(scaleAnimation);
     }
 
     public void translate(View view) {
-        Animation animation = new TranslateAnimation(
+        translateAnimation = new TranslateAnimation(
                 Animation.ABSOLUTE, 0.0f,
                 Animation.ABSOLUTE, 120.0f,
                 Animation.ABSOLUTE, 0.0f,
                 Animation.ABSOLUTE, 0.0f);
-        animation.setDuration(1000);
-        animation.setAnimationListener(this);
-        ivAnimation.startAnimation(animation);
+        translateAnimation.setDuration(1000);
+        translateAnimation.setAnimationListener(this);
+        ivAnimation.startAnimation(translateAnimation);
     }
 
     public void alpha(View view) {
-        Animation animation = new AlphaAnimation(1.0f, 0.0f);
-        animation.setDuration(1000);
-        animation.setAnimationListener(this);
-        ivAnimation.startAnimation(animation);
+        alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
+        alphaAnimation.setDuration(1000);
+        alphaAnimation.setAnimationListener(this);
+        ivAnimation.startAnimation(alphaAnimation);
     }
 
     public void custom(View view) {
-        /*Animation animation = new ScaleAnimation(1.0f, 1.5f,
+        AnimationSet animationSet = new AnimationSet(true);
+
+        scaleAnimation = new ScaleAnimation(1.0f, 1.5f,
                 1.0f, 1.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
-        animation.setDuration(1000);
-        animation.setAnimationListener(this);
-        ivAnimation.startAnimation(animation);
-        animation = new RotateAnimation(0.0f, 360f,
+        scaleAnimation.setDuration(1000);
+
+        rotateAnimation = new RotateAnimation(0.0f, 360f,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
-        animation.setDuration(1000);
-        animation.setAnimationListener(this);
-        ivAnimation.startAnimation(animation);*/
+        rotateAnimation.setStartOffset(1000);
+        rotateAnimation.setDuration(1000);
+
+        animationSet.addAnimation(scaleAnimation);
+        animationSet.addAnimation(rotateAnimation);
+        ivAnimation.startAnimation(animationSet);
     }
 
     @Override
