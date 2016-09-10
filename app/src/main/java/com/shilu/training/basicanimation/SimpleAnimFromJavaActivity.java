@@ -33,6 +33,8 @@ public class SimpleAnimFromJavaActivity extends AppCompatActivity implements Ani
                 Animation.RELATIVE_TO_SELF, 0.5f);
         rotateAnimation.setDuration(1000);
         rotateAnimation.setAnimationListener(this);
+        rotateAnimation.setRepeatCount(1);
+        rotateAnimation.setRepeatMode(Animation.REVERSE);
         ivAnimation.startAnimation(rotateAnimation);
     }
 
@@ -42,6 +44,8 @@ public class SimpleAnimFromJavaActivity extends AppCompatActivity implements Ani
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
         scaleAnimation.setDuration(1000);
+        scaleAnimation.setRepeatCount(1);
+        scaleAnimation.setRepeatMode(Animation.REVERSE);
         scaleAnimation.setAnimationListener(this);
         ivAnimation.startAnimation(scaleAnimation);
     }
@@ -54,12 +58,16 @@ public class SimpleAnimFromJavaActivity extends AppCompatActivity implements Ani
                 Animation.ABSOLUTE, 0.0f);
         translateAnimation.setDuration(1000);
         translateAnimation.setAnimationListener(this);
+        translateAnimation.setRepeatMode(Animation.REVERSE);
+        translateAnimation.setRepeatCount(1);
         ivAnimation.startAnimation(translateAnimation);
     }
 
     public void alpha(View view) {
         alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
         alphaAnimation.setDuration(1000);
+        alphaAnimation.setRepeatCount(1);
+        alphaAnimation.setRepeatMode(Animation.REVERSE);
         alphaAnimation.setAnimationListener(this);
         ivAnimation.startAnimation(alphaAnimation);
     }
@@ -67,17 +75,18 @@ public class SimpleAnimFromJavaActivity extends AppCompatActivity implements Ani
     public void custom(View view) {
         AnimationSet animationSet = new AnimationSet(true);
 
-        scaleAnimation = new ScaleAnimation(1.0f, 1.5f,
-                1.0f, 1.5f,
+        animationSet.setFillAfter(true);
+        scaleAnimation = new ScaleAnimation(1.0f, 2.0f,
+                1.0f, 2.0f,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
-        scaleAnimation.setDuration(1000);
+        scaleAnimation.setDuration(600);
 
         rotateAnimation = new RotateAnimation(0.0f, 360f,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
-        rotateAnimation.setStartOffset(1000);
-        rotateAnimation.setDuration(1000);
+        rotateAnimation.setStartOffset(600);
+        rotateAnimation.setDuration(600);
 
         animationSet.addAnimation(scaleAnimation);
         animationSet.addAnimation(rotateAnimation);

@@ -8,9 +8,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SimpleAnimation"/>
-        <activity android:name=".SimpleAnimFromJavaActivity"/>
-        <activity android:name=".FrameAnimActivity"/>
+        <activity android:name=".SimpleAnimation" android:label="@string/tween_view"/>
+        <activity android:name=".SimpleAnimFromJavaActivity" android:label="@string/tween_java"/>
+        <activity android:name=".FrameAnimActivity" android:label="@string/frame"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
