@@ -11,5 +11,7 @@ Demo application which demonstrates the simple view animation in android.
 * Frame Animation
 
 ## Slide
-* http://www.slideshare.net/lilmssunsyn/basic-android-animation
+* [SlideShare][1]
+
+[1] http://www.slideshare.net/lilmssunsyn/basic-android-animation
 
