@@ -13,5 +13,5 @@ Demo application which demonstrates the simple view animation in android.
 ## Slide
 * [SlideShare][1]
 
-[1] http://www.slideshare.net/lilmssunsyn/basic-android-animation
+[1]: http://www.slideshare.net/lilmssunsyn/basic-android-animation
 
